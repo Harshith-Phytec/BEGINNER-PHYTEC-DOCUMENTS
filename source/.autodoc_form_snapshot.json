@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-11-03 22:11:14",
+  "project_path": "/home/sudhanthira/autodoc/projects/Board_Bring-Up_and_Serial_Console_Setup",
+  "project_name": "Board Bring-Up and Serial Console Setup",
+  "data": {
+    "main_content_0_0": "Board bring-up is the initial process of powering on a new embedded board, checking its basic hardware operation, and confirming that its software starts correctly.\r\n\r\nFor a PHYTEC board, the first checks include:\r\n- Connecting the board to a host PC through its debug interface.\r\n- Opening a serial console to observe boot messages.\r\n- Checking whether the bootloader and Linux start.\r\n- Confirming that a login prompt is available.\r\n- Identifying boot problems from the console output.\r\nPHYTEC's board-specific Quick Start Guides and BSP manuals describe the required connections, serial settings, boot procedure, and initial verification steps. The exact connector and boot configuration depend on the board model.",
+    "main_heading_0_0": "**Beginner's guide |Board Bring-Up and Serial Console Setup**",
+    "next": "",
+    "order_0_0": "0,1,2,3,4,5,7,6",
+    "rst_active_index": "0",
+    "rst_file_name_0": "rstfile1",
+    "section_name_0": "",
+    "section_order_0": "0",
+    "slidebar_heading_0_0": "",
+    "sub_content_0_0_0": "Board bring-up is the initial process of powering on a new embedded board, checking its basic hardware operation, and confirming that its software starts correctly.  For a PHYTEC board, the first checks include: - Connecting the board to a host PC through its debug interface. - Opening a serial console to observe boot messages. - Checking whether the bootloader and Linux start. - Confirming that a login prompt is available. - Identifying boot problems from the console output. PHYTEC's board-specific Quick Start Guides and BSP manuals describe the required connections, serial settings, boot procedure, and initial verification steps. The exact connector and boot configuration depend on the board model. ",
+    "sub_content_0_0_1": "The serial console provides access to the board's boot messages and command-line interface. It helps developers observe the boot process and investigate problems when the board does not start normally.\r\n\r\nFor the phyBOARD-Nash i.MX93, PHYTEC specifies the USB-C debug connection at connector X37. Other PHYTEC boards may use a different USB debug port or a serial interface on an evaluation board. Always refer to the relevant Quick Start Guide.",
+    "sub_content_0_0_2": "1. Locate the debug connector specified in the board's PHYTEC documentation.\r\n2. Connect the board's debug interface to a USB port on the host PC.\r\n3. Prepare the appropriate serial terminal application on the host.\r\n4. Configure the serial connection using the settings specified by PHYTEC.\r\n5. Connect the board's power supply according to its hardware manual.\r\n6. Power on the board and observe the messages appearing in the terminal.",
+    "sub_content_0_0_3": "Minicom is a serial terminal application used to communicate with a board through a serial port. PHYTEC documents its use for accessing the serial console on supported boards. \r\ndownload.phytec.de+1\r\n\r\nStep 1: Install Minicom\r\nOn a supported Ubuntu/Linux host, run:\r\nsudo apt update\r\nsudo apt install minicom\r\n\r\nStep 2: Identify the serial device\r\nConnect the board's debug USB port to the host PC. Then run:\r\nls /dev/ttyUSB*\r\n\r\nThe serial device may appear as /dev/ttyUSB0. The exact device name depends on the host and connected interface. \r\n\r\nStep 3: Open Minicom\r\nRun the following command, replacing the device name if required:\r\nsudo minicom -D /dev/ttyUSB0\r\n\r\nStep 4: Configure the serial settings\r\nPHYTEC's Minicom instructions use the following settings:\r\n\r\n- Baud rate: 115200\r\n- Data bits: 8\r\n- Parity: None\r\n- Stop bits: 1\r\n- Hardware flow control: No\r\n- Software flow control: No\r\nTo configure these settings through Minicom, open its configuration menu: sudo minicom -s\r\n\r\nSelect Serial port setup, enter the correct serial device, configure the settings, and save the configuration.",
+    "sub_content_0_0_4": "PHYTEC recommends PuTTY for Windows-based serial console access in its Quick Start documentation. \r\n\r\nStep 1: Connect the board\r\nConnect the PHYTEC board's documented debug port to a USB port on the Windows PC.\r\n\r\nStep 2: Identify the COM port\r\n1. Open Device Manager.\r\n2. Expand Ports (COM & LPT).\r\n3. Identify the COM port associated with the connected board.\r\nFor example, Windows might display COM6. This is an example; use the COM port shown on your PC. \r\n\r\nStep 3: Open PuTTY\r\n1. Launch PuTTY.\r\n2. Select Serial as the connection type.\r\n3. Enter the COM port identified in Device Manager.\r\n4. Set the speed to 115200.\r\n5. Open the connection.\r\nConfigure the serial connection for 8 data bits, no parity, 1 stop bit, and no flow control, as specified in the relevant PHYTEC manual. \r\n\r\nCapture Boot Logs and Identify Common Boot Failures\r\nBoot logs : Boot logs are messages printed by the board while starting. Depending on the platform, the serial console can display output from the bootloader and Linux kernel.\r\n\r\nPHYTEC's i.MX93 BSP manual instructs users to connect the debug console, power on the board, and observe the bootloader and Linux startup messages.",
+    "sub_content_0_0_5": "1. Connect the serial console before powering on the board.\r\n2. Open Minicom or PuTTY using the correct serial settings.\r\n3. Start the terminal session.\r\n4. Power on or reset the board.\r\n5. Observe the messages from the beginning of startup through the Linux login prompt.\r\nKeep the terminal session open while the board boots. If your terminal application supports logging to a file, use its logging function to save the output for later analysis. The exact logging menu depends on the terminal application.\r\n\r\n",
+    "sub_content_0_0_6": "Use this checklist during initial board bring-up.\r\n\r\nConnections: Confirm that the debug cable and the correct power supply are connected as specified by the hardware manual.\r\n\r\nBoot configuration: Verify that the boot-mode switches are set for the intended boot source.\r\n\r\nSerial console: Confirm that the correct port and serial settings are selected.\r\n\r\n\r\nBootloader: Check whether bootloader messages appear.\r\n\r\nLinux startup: Check whether Linux startup messages follow.\r\n\r\nLogin prompt: Confirm that the expected login prompt appears.\r\n\r\nRecord the result: Save the boot log if possible and note any errors or the last visible startup message.\r\n\r\nFor the phyBOARD-Nash i.MX93, PHYTEC documents the X37 USB-C debug interface and 115200 baud, 8N1 serial settings. Always verify the corresponding connector and boot procedure for other PHYTEC boards.",
+    "sub_content_0_0_7": "Symptom\tWhat to check first :\r\n\r\nNo console output - Confirm the correct debug connector, serial device or COM port, baud rate, and cable connection.\r\nUnreadable characters - Verify that the serial settings match the PHYTEC manual, especially the baud rate and 8N1 format.\r\nBootloader messages appear, but Linux does not start\tRecord the last visible messages and consult the BSP manual for the relevant boot stage.\r\nLinux starts but no login prompt appears - Check the remaining console output and the board-specific login instructions.\r\nBoard does not boot from the expected device - Check the documented boot-mode switch setting and the bootable media.\r\n\r\nThese are initial diagnostic checks based on the serial connection and boot procedure documented by PHYTEC; they are not a complete list of every possible failure or a claim that each symptom has one specific cause.",
+    "sub_head_0_0_0": "**Board bring-up** ",
+    "sub_head_0_0_1": "**Identify the debug interface** ",
+    "sub_head_0_0_2": "**Connection procedure** ",
+    "sub_head_0_0_3": "**Configure and Use Minicom on Linux**",
+    "sub_head_0_0_4": "**Configure a Serial Terminal on Windows** ",
+    "sub_head_0_0_5": "**How to capture the boot log** ",
+    "sub_head_0_0_6": "**Basic Checks After Powering On a New Board** ",
+    "sub_head_0_0_7": "**Common symptoms to observe** ",
+    "theme": "sphinx_rtd_theme",
+    "customization": "page_width",
+    "page_width_width": "100",
+    "customization_data": "{\"page_width_width\":\"100%\"}",
+    "pdf_doc_title": "\"How TO\" Doc - BSP",
+    "team_activity_0": "Prepared By",
+    "team_name_0": "Pragathi",
+    "team_email_0": "pragathi.s@phytecembedded.in",
+    "team_company_0": "",
+    "pdf_team_data": "[{\"activity\":\"Prepared By\",\"name\":\"Pragathi\",\"email\":\"pragathi.s@phytecembedded.in\",\"company\":\"\"}]",
+    "custom_theme": ""
+  },
+  "active_index": "0",
+  "theme": "sphinx_rtd_theme",
+  "customizations": {
+    "page_width_width": "100%"
+  },
+  "pdf_doc_title": "\"How TO\" Doc - BSP",
+  "pdf_team_data": [
+    {
+      "activity": "Prepared By",
+      "name": "Pragathi",
+      "email": "pragathi.s@phytecembedded.in",
+      "company": ""
+    }
+  ]
+}
