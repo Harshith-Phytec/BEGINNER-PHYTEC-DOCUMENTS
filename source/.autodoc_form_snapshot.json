@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-11-03 22:58:56",
+  "project_path": "/home/sudhanthira/autodoc/projects/Connect_the_Ethernet",
+  "project_name": "Connect the Ethernet",
+  "data": {
+    "main_content_0_0": "Connect the Ethernet cable to the board's Ethernet connector.\r\nConnect the other end to the network switch or router.\r\nPower on the board and wait for Linux to start.",
+    "main_heading_0_0": "**Connect the Ethernet** ",
+    "next": "",
+    "order_0_0": "0,1,3,2",
+    "rst_active_index": "0",
+    "rst_file_name_0": "rstfile1",
+    "section_name_0": "",
+    "section_order_0": "0",
+    "slidebar_heading_0_0": "",
+    "sub_content_0_0_0": "The PHYTEC Ethernet guide for phyCORE-AM62x documents the following procedure:\r\n\r\nConnect the board to a DHCP-enabled network.\r\nAllow the network interface to negotiate the connection.\r\nCheck the assigned IP address using:\r\nip addr\r\nIf the network is configured correctly and the DHCP server is available, the interface should receive an IP address.\r\n\r\n**systemd-networkd** \r\n\r\nIt is a Linux service responsible for managing network interfaces and their configurations on BSPs that use it.\r\nOn the target board, PHYTEC documents the network configuration files under:\r\n/lib/systemd/network/\r\nThe configuration method can differ between BSP releases. Check the Ethernet guide for the relevant board and software version.\r\n\r\n**Understand the IP Address Output** \r\n\r\nFor example, a PHYTEC Ethernet guide shows an interface with an address similar to:\r\n\r\nend0: <BROADCAST,MULTICAST,UP,LOWER_UP>\r\ninet 192.168.3.11/24\r\nThe important fields mean:\r\nField\r\nMeaning\r\nend0\r\nNetwork interface name\r\nUP\r\nInterface is administratively enabled\r\nLOWER_UP\r\nThe lower-layer connection is operational\r\ninet\r\nIPv4 address information\r\n192.168.3.11\r\nExample IPv4 address\r\n/24\r\nSubnet prefix\r\n\r\nAn interface marked UP does not necessarily mean that the Ethernet cable has a working physical link. Check the other interface flags and the physical connection as well.\r\n\r\n**Final Verification Checklist** \r\n\r\nBoard powered using the supply specified in its PHYTEC Quickstart Guide.\r\nEthernet cable connected to the intended port.\r\nNetwork interfaces checked using ip link show.\r\nIP addresses checked using ip addr show.\r\nRouting table checked using ip route show.\r\nEthernet connectivity tested using ping.\r\nAny network configuration changes verified.\r\nOfficial reference: PHYTEC Ethernet Guide — phyCORE-AM62x. For other PHYTEC boards, select the corresponding Ethernet guide from the PHYTEC documentation portal.\r\n\r\n**Ethernet** \r\n\r\nEthernet is a wired networking technology that allows devices to exchange data over a network.\r\n\r\n**DHCP** \r\n\r\nDHCP stands for Dynamic Host Configuration Protocol. It allows a network's DHCP server to assign an IP address and other network settings automatically.\r\n\r\n**Configure a Static IP Address** \r\n\r\nA static IP address is an address configured manually rather than obtained automatically from DHCP.\r\n\r\nFor example, the PHYTEC phyCORE-AM62x Ethernet guide documents changing the static address of an interface through its network configuration file.\r\n\r\nFor a board whose configuration uses 10-eth0.network, the documented procedure is:\r\n\r\nOpen the configuration file:\r\nvi /lib/systemd/network/10-eth0.network\r\nModify the Address setting under the [Network] section. For example:\r\n\r\n[Network]\r\nAddress=192.168.3.11/24\r\n\r\nRestart the network service:\r\nsystemctl restart systemd-networkd\r\n\r\nVerify the result:\r\nip addr show\r\n\r\n**What does /24 mean?** \r\n\r\nThe /24 is the subnet prefix. It identifies how much of the IP address belongs to the network portion. In this example, 192.168.3.11/24 belongs to the 192.168.3.0/24 network.\r\n\r\nImportant: The filename, interface name, and example address above follow a PHYTEC BSP configuration example. Other boards may use different interface names and configuration files. Check the applicable PHYTEC Ethernet guide before editing a file.\r\n\r\nTo change the default static address permanently in a Yocto-built image, the PHYTEC guide also describes modifying the corresponding configuration in the BSP layer and rebuilding the image.\r\n\r\nOfficial reference: PHYTEC Ethernet Guide — phyCORE-AM62x.\r\n\r\n**Check IP Addresses, Routes, and Network Interfaces** \r\n\r\n**Check Network Interfaces** \r\n\r\nRun:\r\n\r\nip link show\r\nThis displays the network interfaces available on the board and their link states.\r\nTo display the IP addresses associated with the interfaces, run:\r\nip addr show\r\nThe PHYTEC Ethernet documentation uses ip addr to show assigned addresses.\r\n\r\nCommon interface names include:\r\nlo — the loopback interface used for communication within the same system.\r\neth0 — a common Ethernet interface name.\r\neth1 — a possible second Ethernet interface.\r\n\r\nSome PHYTEC BSPs use other names, such as end0 and end1. Always use the names displayed by the board itself.",
+    "sub_content_0_0_1": "A routing table tells Linux where to send network packets to reach a destination.\r\n\r\nRun:\r\n\r\nip route show -  This displays the IPv4 routing table.\r\nA default route, when configured, specifies the next hop used for destinations without a more specific matching route.\r\nFor example, a routing entry may contain :\r\n\r\ndefault via 192.168.3.1 dev eth0\r\n\r\nHere, default means the route is used when no more specific route matches.\r\nvia 192.168.3.1 identifies the next-hop gateway.\r\ndev eth0 identifies the network interface used.\r\n\r\nThe example is illustrative; the actual gateway and interface depend on the network configuration.",
+    "sub_content_0_0_2": "Check the interface list and the board's supported Ethernet configuration.\r\nInterface is up but no IP address is assigned\r\nCheck DHCP availability or the static IP configuration.\r\nNo physical link\r\nCheck the Ethernet cable, switch port, connector LEDs, and physical connection.\r\nIP address exists but ping fails\r\nCheck the destination address, subnet, routing table, and network accessibility.\r\nExternal IP works but hostname does not\r\nCheck DNS configuration.",
+    "sub_content_0_0_3": "The ping command tests whether another host responds to network echo requests.\r\nTo test an external IP address, the PHYTEC Ethernet guide uses this command format:\r\nping 8.8.8.8 -c 10\r\nThis sends 10 ping requests to the example destination. Use an appropriate reachable destination for your own network.\r\nA successful test displays replies and ping statistics. If packets are lost, investigate the physical link, IP configuration, routes, and network accessibility.\r\nA successful ping to an external IP address does not by itself verify DNS resolution. DNS can be checked separately by testing a hostname.",
+    "sub_head_0_0_0": "**Configure Ethernet Using DHCP** ",
+    "sub_head_0_0_1": "**Check the Routing Table** ",
+    "sub_head_0_0_2": "**Basic Ethernet Troubleshooting** ",
+    "sub_head_0_0_3": "**Test Network Connectivity** ",
+    "theme": "sphinx_rtd_theme",
+    "customization": "",
+    "customization_data": "{}",
+    "pdf_doc_title": "\"How TO\" Doc - BSP",
+    "team_activity_0": "Prepared By",
+    "team_name_0": "Pragathi",
+    "team_email_0": "pragathi.s@phytecembedded.in",
+    "team_company_0": "",
+    "pdf_team_data": "[{\"activity\":\"Prepared By\",\"name\":\"Pragathi\",\"email\":\"pragathi.s@phytecembedded.in\",\"company\":\"\"}]",
+    "custom_theme": ""
+  },
+  "active_index": "0",
+  "theme": "sphinx_rtd_theme",
+  "customizations": {},
+  "pdf_doc_title": "\"How TO\" Doc - BSP",
+  "pdf_team_data": [
+    {
+      "activity": "Prepared By",
+      "name": "Pragathi",
+      "email": "pragathi.s@phytecembedded.in",
+      "company": ""
+    }
+  ]
+}
