@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-11-03 21:46:05",
+  "project_path": "/home/sudhanthira/autodoc/projects/BSP_Documentation_Downloads_and_Feature_Verification",
+  "project_name": "BSP Documentation, Downloads and Feature Verification",
+  "data": {
+    "image_0_0_3": "image_3.png",
+    "image_0_0_5": "image_4.png",
+    "image_align_0_0_3": "",
+    "image_align_0_0_5": "",
+    "image_desc_0_0_3": "Fig 1 : Ex - PhyBoard-Wega page",
+    "image_desc_0_0_5": "Fig 2: List of documents available in website",
+    "image_width_0_0_3": "",
+    "image_width_0_0_5": "",
+    "main_content_0_0": "**Objective** \r\nTo understand how to locate PHYTEC BSP software, review release notes, identify available documentation, and verify peripheral support using official PHYTEC resources.",
+    "main_heading_0_0": "**BSP Documentation, Downloads and Feature Verification** ",
+    "next": "",
+    "order_0_0": "0,1,3,8,9,10,6,5",
+    "rst_active_index": "0",
+    "rst_file_name_0": "rstfile1",
+    "section_name_0": "",
+    "section_order_0": "0",
+    "slidebar_heading_0_0": "",
+    "sub_content_0_0_0": "**Step 1** Open the BSP Download Directory\r\nOpen the official Linux BSP download link provided above.\r\nReview the available BSP directories.\r\nIdentify the directory corresponding to the target processor family.\r\nFor the AM335x platform, locate BSP-Yocto-AM335x/.\r\nOpen the relevant BSP release directory and identify the required version.\r\nThe directory contains BSP entries for several processor families, including AM335x, AM62x, AM64x, i.MX6, and i.MX8MP.\r\n\r\n**Step 2** — Identify the BSP Release\r\nOpen the directory for the required processor family.\r\nLocate the BSP release matching the target platform.\r\nVerify the BSP release identifier.\r\nConfirm that the release corresponds to the intended hardware configuration before selecting an image.\r\nExample BSP: BSP-Yocto-Ampliphy-AM335x-PD23.1.0\r\n\r\n**Step 3**  — Review the Release Notes\r\nOpen the following official release notes:\r\nhttps://download.phytec.de/Software/Linux/BSP-Yocto-AM335x/BSP-Yocto-Ampliphy-AM335x-PD23.1.0/ReleaseNotes\r\nReview the information provided in the document.\r\nBSP release information: example link above AM335x\r\n• Release date: 25 April 2023\r\n• Linux kernel: 5.15.82\r\n• Bootloader: barebox 2022.09.0\r\n• Yocto version: 4.0.9 (Kirkstone)\r\n• Qt version: 5.15.7\r\n• Build environment: Ubuntu 20.04, 64-bit\r\nReview these sections:\r\nTested Yocto Images\r\nBuild Environment\r\nNew Features\r\nDefeatured\r\nKnown Issues\r\nNotes\r\nThese sections provide information about tested images, build requirements, feature changes, known limitations, and other release-specific details.\r\n\r\n**Step 4** — Identify Image Files\r\nOpen the official Linux BSP download directory.\r\nNavigate to the processor family directory.\r\nOpen the required BSP release directory.\r\nReview the available files and identify the image format appropriate for the target board.\r\nRefer to the release notes and BSP documentation to confirm the correct image and flashing procedure.\r\n\r\n**Step 5**  — Locate Available Documentation\r\nUse the phyBOARD-Wega AM335x product page as an example to check which documentation files are provided.\r\nExample: phyBOARD-Wega AM335x\r\nProduct page: https://www.phytec.in/en/produkte/single-board-computer/phyboard-wega-am335x/#downloads/",
+    "sub_content_0_0_1": "**Reference 1:**  Linux BSP Downloads\r\nhttps://download.phytec.de/Software/Linux/\r\n**Reference 2:**  AM335x BSP PD23.1.0 Release Notes [ Example for AM335x ]\r\nhttps://download.phytec.de/Software/Linux/BSP-Yocto-AM335x/BSP-Yocto-Ampliphy-AM335x-PD23.1.0/ReleaseNotes",
+    "sub_content_0_0_10": "Use the following procedure to investigate support for a particular peripheral.\r\nReview the release notes for relevant features, changes, and known issues.\r\nCheck the applicable hardware documentation to confirm that the interface is available on the target board.\r\nExamine the BSP source code and device-tree configuration, if available.\r\nVerify that the required Linux kernel driver is present and configured.\r\nCheck the running system for the corresponding device or interface.\r\nPerform a functional test using suitable hardware and software.\r\nA peripheral's presence in the processor specification does not guarantee that it is exposed on the carrier board or enabled in the selected BSP configuration.\r\n",
+    "sub_content_0_0_6": "After completing these steps, the engineer should be able to:\r\n• Locate the appropriate PHYTEC BSP release.\r\n• Identify the available software images.\r\n• Read and interpret the release notes.\r\n• Identify the relevant hardware documentation.\r\n• Understand the documented feature changes and known issues.\r\n• Follow a structured process to verify peripheral support.\r\n\r\n**Conclusion**\r\nThe official PHYTEC Linux download directory is the starting point for locating BSP releases and their associated files. The corresponding release notes provide release-specific information about software versions, tested images, feature changes, and known issues.\r\nPeripheral support should be confirmed using the applicable hardware documentation, BSP configuration, kernel-driver availability, and practical testing.",
+    "sub_content_0_0_8": "**Quick Start Guide** - Initial setup instructions, required connections, booting the board, and first-use checks.\r\n**BSP Manual** - Board Support Package information, software setup, build or installation workflow, and supported features.\r\n**Release Notes -** Release-specific changes, supported components, known issues, fixes, and compatibility notes.\r\n**Hardware Manual -** Board architecture, connectors, interfaces, electrical details, and hardware configuration information.\r\n**Schematics**  - Circuit-level information used for hardware tracing, signal connectivity, and debugging, when published.\r\n**Carrier-board** documentation - Carrier-board connector assignments, interface routing, pin mappings, and related hardware details, when published.\r\nDocument availability and location may vary by product and release. If a document is not present in the selected directory, its availability cannot be confirmed from these two links alone.\r\n",
+    "sub_content_0_0_9": "Use the applicable hardware documentation, when available, to identify the interfaces exposed by the target board.\r\nExamples of interfaces to investigate include:\r\n• UART\r\n• I²C\r\n• SPI\r\n• GPIO\r\n• CAN\r\n• Ethernet\r\n• USB\r\n• PWM\r\nFor each interface, identify the corresponding hardware connection and check whether the BSP release documents any related support or limitations.\r\n",
+    "sub_head_0_0_0": "**PHYTEC Linux BSP Download, Release Identification, and Documentation Review** ",
+    "sub_head_0_0_1": "**Official Reference** ",
+    "sub_head_0_0_10": "**Verify Peripheral Support** ",
+    "sub_head_0_0_6": "**Expected Outcome**",
+    "sub_head_0_0_8": "**Common Documents types:**",
+    "sub_head_0_0_9": "**Identify Board Peripherals and Interfaces** ",
+    "theme": "sphinx_rtd_theme",
+    "customization": "",
+    "page_width_width": "100",
+    "customization_data": "{\"page_width_width\":\"100%\"}",
+    "pdf_doc_title": "\"How TO\" Doc - BSP",
+    "team_activity_0": "Prepared By",
+    "team_name_0": "Pragathi",
+    "team_email_0": "pragathi.s@phytecembedded.in",
+    "team_company_0": "",
+    "pdf_team_data": "[{\"activity\":\"Prepared By\",\"name\":\"Pragathi\",\"email\":\"pragathi.s@phytecembedded.in\",\"company\":\"\"}]",
+    "custom_theme": ""
+  },
+  "active_index": "0",
+  "theme": "sphinx_rtd_theme",
+  "customizations": {
+    "page_width_width": "100%"
+  },
+  "pdf_doc_title": "\"How TO\" Doc - BSP",
+  "pdf_team_data": [
+    {
+      "activity": "Prepared By",
+      "name": "Pragathi",
+      "email": "pragathi.s@phytecembedded.in",
+      "company": ""
+    }
+  ]
+}
