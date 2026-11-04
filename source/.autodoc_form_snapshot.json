@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-11-03 22:47:59",
+  "project_path": "/home/sudhanthira/autodoc/projects/PHYTEC_Board_Hardware_Basics_-_Training_Document",
+  "project_name": "PHYTEC Board Hardware Basics - Training Document",
+  "data": {
+    "content_0_0_3": "**Carrier board**\r\n\r\nThe carrier board provides the physical interfaces and supporting circuitry required to use the SOM in a complete system.\r\nDepending on the carrier-board model, it may provide:\r\n• Power input.\r\n• Ethernet.\r\n• USB.\r\n• UART, RS-232 or RS-485.\r\n• CAN.\r\n• I²C and SPI expansion interfaces.\r\n• GPIO and PWM.\r\n• Display, camera and audio interfaces.\r\n• MicroSD or other storage connections.\r\nNot every carrier board exposes every processor interface.\r\nHow to identify a carrier board:\r\nLook for the phyBOARD product name, where applicable.\r\nRecord the carrier-board product number and PCB revision.\r\nFind the corresponding carrier-board hardware manual.\r\nCompare the board with the component-placement diagram.\r\nMatch the connector labels and reference designators to the manual.",
+    "image_0_0_1": "image_5.png",
+    "image_0_0_4": "image_6.png",
+    "image_0_0_6": "image_7.png",
+    "image_align_0_0_1": "",
+    "image_align_0_0_4": "",
+    "image_align_0_0_6": "",
+    "image_desc_0_0_1": "",
+    "image_desc_0_0_4": "Fig 2 : Ex AM64 Carrier Board",
+    "image_desc_0_0_6": "Fig 3 :  ex - phyBOARD®-Pollux\r\nImaging kit",
+    "image_width_0_0_1": "",
+    "image_width_0_0_4": "",
+    "image_width_0_0_6": "",
+    "main_content_0_0": "This document introduces the basic hardware concepts required when working with PHYTEC development boards. It covers:\r\n    • Basic SOM removal and installation precautions.\r\n    • Identification of the SOM, carrier board, connectors and peripherals.\r\n    • PHYTEC board families and their power-supply requirements.\r\n    • Official PHYTEC documentation sources for hardware verification.",
+    "main_heading_0_0": "**Purpose and scope** ",
+    "next": "",
+    "order_0_0": "0,1,3,4,5,6,7",
+    "rst_active_index": "0",
+    "rst_file_name_0": "rstfile1",
+    "section_name_0": "",
+    "section_order_0": "0",
+    "slidebar_heading_0_0": "",
+    "sub_content_0_0_0": "**System-on-Module (SOM)**  \r\n\r\nA System-on-Module is a compact computer module that integrates the main processing components. Depending on the model, it may include:\r\n    \r\nProcessor or system-on-chip (SoC).   \r\nRAM\r\nNon-volatile storage.\r\nPower-management\r\nsupporting circuitry.\r\n    \r\nInterfaces routed to a module connector.\r\n    \r\nThe exact components depend on the SOM model.\r\n    \r\nHow to identify a SOM:\r\n   \r\nLook for the phyCORE product name. \r\n   \r\nRecord the product number and module variant. \r\nRecord the PCB revision. \r\nFind the matching SOM hardware manual on the official PHYTEC website. \r\n\r\nUse the manual's component-placement diagram to identify the components.\r\n    ",
+    "sub_content_0_0_5": "A development kit commonly combines a SOM, carrier board and accessories.\r\n\r\nThe external power input for the complete kit may differ from the voltage required by the SOM itself because the carrier board may contain voltage regulators\r\n\r\nImportant: Never assume that the SOM supply voltage is also the correct external input voltage for the complete development kit.",
+    "sub_content_0_0_7": "The correct extraction tool and mechanical procedure depend on the SOM connector and carrier-board design.\r\n\r\n**Before removing the SOM** \r\n\r\n1.Shut down the operating system using the documented procedure. \r\n2. Disconnect the external power supply.\r\n3. Disconnect other connections that could back-power the board, where applicable.\r\n4. Confirm the board is no longer powered before handling the module. \r\n5. Use appropriate electrostatic discharge (ESD) protection, such as a grounded ESD wrist strap and ESD-safe work surface. \r\n6. Identify the exact SOM and carrier board. \r\n7. Read the relevant PHYTEC hardware manual and identify the required removal tool.    \r\n\r\n**During removal**\r\n    \r\n• Use the correct removal tool for the specific SOM connector.\r\n• Follow the prescribed removal points and procedure \r\n• Apply controlled, even force.\r\n• Do not twist or bend the module.\r\n• Do not pull on components or use nearby components as leverage. • Stop if the module does not release as expected.\r\n    \r\n\r\n**During installation** \r\n\r\n1.Inspect the module and connector for visible damage or contamination.\r\n2. Confirm the correct orientation.\r\n3. Align the SOM with the carrier-board connector.\r\n4. Seat the module evenly using the method specified by PHYTEC. 5. Do not force a misaligned connector.\r\n6. Inspect the assembly before reconnecting power.\r\n7. Reconnect power only after the module is correctly installed.\r\n    \r\n**SOM removal video**   \r\n\r\nThe following video was supplied as a visual reference for the removal procedure.\r\n    \r\nWatch the SOM removal procedure on YouTube\r\n\r\nUse the video together with the applicable PHYTEC hardware manual.   \r\n\r\nThe manual for the exact module and carrier-board combination should determine the tool and handling procedure.\r\n\r\n**Identifying connectors and peripherals**\r\n    \r\nUse the official carrier-board component-placement diagram and hardware manual to identify the connectors.",
+    "sub_head_0_0_0": "**Understanding the hardware**",
+    "sub_head_0_0_5": "**Complete development kit**",
+    "sub_head_0_0_7": "**SOM removal and installation precautions**",
+    "theme": "sphinx_rtd_theme",
+    "customization": "",
+    "page_width_width": "100",
+    "customization_data": "{\"page_width_width\":\"100%\"}",
+    "pdf_doc_title": "\"How TO\" Doc - BSP",
+    "team_activity_0": "Prepared By",
+    "team_name_0": "Pragathi",
+    "team_email_0": "pragathi.s@phytecembedded.in",
+    "team_company_0": "",
+    "pdf_team_data": "[{\"activity\":\"Prepared By\",\"name\":\"Pragathi\",\"email\":\"pragathi.s@phytecembedded.in\",\"company\":\"\"}]",
+    "custom_theme": ""
+  },
+  "active_index": "0",
+  "theme": "sphinx_rtd_theme",
+  "customizations": {
+    "page_width_width": "100%"
+  },
+  "pdf_doc_title": "\"How TO\" Doc - BSP",
+  "pdf_team_data": [
+    {
+      "activity": "Prepared By",
+      "name": "Pragathi",
+      "email": "pragathi.s@phytecembedded.in",
+      "company": ""
+    }
+  ]
+}
